@@ -9,6 +9,7 @@
     Open your browser console to see the logs.
     <script>
     let connection;
+    const times = 4;
 
     function displayHelp() {
       console.log('Available channels:')
@@ -23,7 +24,7 @@
     }
 
     function listen(path) {
-      const url = new URL(`${path}?times=4`, 'ws://localhost').toString()
+      const url = new URL(`${path}?times=${times}`, 'ws://localhost').toString()
       connection = new WebSocket(url)
 
       connection.onerror = error => {

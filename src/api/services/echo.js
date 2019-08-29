@@ -32,9 +32,9 @@ service.onEcho = async (ws, options) => {
   let times = 1;
 
   if (options.query && options.query.times !== undefined && timesDefinition) {
-    const valid = ajv.validate(timesDefinition, options.query.times);
+    const valid = ajv.validate(timesDefinition, Number(options.query.times));
     if (!valid) console.error(ajv.errors);
-    times = options.query.times;
+    times = Number(options.query.times);
   }
 
   for (let i=0; i < times; i++) {
